@@ -1,0 +1,4 @@
+878887,Sales,keyboard,2,55,110,Himanshu chand thakuri,1/1/2004
+3388,Sales,Pikachu,3,550,1650,For fun.,1/1/2005
+8899,Purchase,IshanGautam,75,66666,4.99995e+06,Janak Bhatta,1/1/2001
+88955,Purchase,keyboard,25,55,1375,for fun,1/1/2001
