@@ -5,7 +5,7 @@
 #include "ViewInventoryWindow.h"
 #include "AddItemsToInventoryWindow.h"
 #include "ViewTransactionWindow.h"
-
+#include "ViewLedgerForAccount.h"
 
 
 
@@ -37,6 +37,8 @@ private slots:
 
     void on_view_tansaction_clicked();
 
+    void on_view_ledger_for_account_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -47,5 +49,7 @@ private:
     AddItemsToInventoryWindow *AddItemsToInventWin;
 
     ViewTransactionWindow *viewTransactionWin;
+
+    ViewLedgerForAccount *viewLedgerForAcc;
 };
 #endif // MAINWINDOW_H

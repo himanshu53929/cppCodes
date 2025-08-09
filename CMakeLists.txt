@@ -37,6 +37,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         transaction.txt
         ViewTransactionWindow.h ViewTransactionWindow.cpp ViewTransactionWindow.ui
         inventory.txt
+        ViewLedgerForAccount.h ViewLedgerForAccount.cpp ViewLedgerForAccount.ui
+
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET ProjectMew APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

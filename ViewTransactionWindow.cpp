@@ -35,6 +35,7 @@ ViewTransactionWindow::ViewTransactionWindow(QWidget *parent)
         "Rate", "Amount", "Quantity", "Debit", "Credit", "Date"
     };
     ui->tableWidget->setHorizontalHeaderLabels(headers);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     // Fill table
     for (int row = 0; row < transactions.size(); ++row) {

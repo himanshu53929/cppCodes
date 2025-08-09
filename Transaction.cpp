@@ -30,7 +30,7 @@ Transaction::Transaction(int acc,
 
 {
     this->amount = quantity * rate;
-    if (nature == "sales" || nature == "purchase return") {
+    if (nature == "Sales" || nature == "Purchase Return") {
         type = "debit";
         debit = amount;
         credit = 0.0;

@@ -52,6 +52,13 @@ void Inventory::updateQuantity(const std::string nam, const int& q)
     }
 
     //I will also add some code here to check if the quantity is 0 and then remove it
+    std::ofstream outfile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/inventory.txt", std::ios::out);
+
+    for(const Item& I: items){
+        outfile<<I.itemName<<std::endl;
+        outfile<<I.quantity<<std::endl;
+        outfile<<I.price<<std::endl;
+    }
 
     return;
 }

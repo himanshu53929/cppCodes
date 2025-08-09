@@ -2,3 +2,9 @@
 3388,Sales,Pikachu,3,550,1650,For fun.,1/1/2005
 8899,Purchase,IshanGautam,75,66666,4.99995e+06,Janak Bhatta,1/1/2001
 88955,Purchase,keyboard,25,55,1375,for fun,1/1/2001
+552,Purchase,keyboard,12,55,660,for test,8/8/2025
+8936,Purchase,keyboard,55,55,3025,for second test,1/1/2025
+99336,Purchase,keyboard,66,55,3630,jay siya ram,1/1/2007
+1,Sales,Mouse,50,450,22500,Nothing,1/1/2007
+1,Purchase,Pikachu,5,550,2750,Something,1/1/2009
+1,Purchase Return,Pikachu,10,550,5500,Something nothing,1/1/2020

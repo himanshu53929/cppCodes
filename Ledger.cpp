@@ -40,6 +40,11 @@ void Ledger::displayStyledLedger(int account) const {
     std::cout << "───────────────────────────────────────────────────────────────────\n";
 }
 void Ledger::addEntry(const LedgerEntry& entry) {}
+std::vector<LedgerEntry> Ledger::returnLedger()
+{
+    return entries;
+}
+
 void Ledger::loadFromTransactions(const std::vector<Transaction>& txList){
     entries.clear(); // Optional: Reset ledger before loading
 

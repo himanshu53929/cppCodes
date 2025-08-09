@@ -61,3 +61,10 @@ void MainWindow::on_view_tansaction_clicked()
     viewTransactionWin -> show();
 }
 
+void MainWindow::on_view_ledger_for_account_clicked()
+{
+    hide();
+    viewLedgerForAcc = new ViewLedgerForAccount(this);
+    viewLedgerForAcc -> show();
+}
+
