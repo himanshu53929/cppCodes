@@ -27,6 +27,7 @@ public:
     void saveInventoryToFile() const;
     void loadInventoryFromFile();
     void copyInventoryItems(std::vector<Item>& itms) const;
+    const std::vector<Item>& getItems() const;
 };
 
 #endif

@@ -38,6 +38,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ViewTransactionWindow.h ViewTransactionWindow.cpp ViewTransactionWindow.ui
         inventory.txt
         ViewLedgerForAccount.h ViewLedgerForAccount.cpp ViewLedgerForAccount.ui
+        ProfitLossWindow.h ProfitLossWindow.cpp ProfitLossWindow.ui
 
 
     )

@@ -6,7 +6,15 @@
 #include "AddItemsToInventoryWindow.h"
 #include "ViewTransactionWindow.h"
 #include "ViewLedgerForAccount.h"
-
+#include "ProfitLossWindow.h"
+#include <QDebug>
+#include <QDialog>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QLabel>
+#include <QFont>
+#include "Report.h"
+#include <QMessageBox>
 
 
 #include <QMainWindow>
@@ -39,6 +47,12 @@ private slots:
 
     void on_view_ledger_for_account_clicked();
 
+    void on_profit_loss_button_clicked();
+
+    void on_export_report_button_clicked();
+
+    void on_submit_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -51,5 +65,15 @@ private:
     ViewTransactionWindow *viewTransactionWin;
 
     ViewLedgerForAccount *viewLedgerForAcc;
+
+    ProfitLossWindow *profitLossWin;
+
+    QDialog* dialog;
+
+    QFont font;
+
+    QLineEdit* line;
+
+    Report* ptr_report;
 };
 #endif // MAINWINDOW_H

@@ -36,6 +36,8 @@ ViewTransactionWindow::ViewTransactionWindow(QWidget *parent)
     };
     ui->tableWidget->setHorizontalHeaderLabels(headers);
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(4, QHeaderView::Fixed);
+    ui->tableWidget->setColumnWidth(4, 300);
 
     // Fill table
     for (int row = 0; row < transactions.size(); ++row) {

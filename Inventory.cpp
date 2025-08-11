@@ -122,3 +122,8 @@ void Inventory::checkReorderAlerts()
 void Inventory:: copyInventoryItems(std::vector<Item>& itms) const{
     itms = items;
 }
+
+const std::vector<Item> &Inventory::getItems() const {
+    return items;
+}
+

@@ -67,16 +67,16 @@ void ViewLedgerForAccount::on_display_button_clicked()
                 ui->table->setItem(i, 0, new QTableWidgetItem(entry.date.toQString()));
                 ui->table->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(particulars)));
                 ui->table->setItem(i, 2, new QTableWidgetItem(QString::number(entry.amount, 'f', 2)));
-                // ui->table->setItem(i, 3, new QTableWidgetItem(QString("Null")));
-                // ui->table->setItem(i, 4, new QTableWidgetItem(QString("Null")));
-                // ui->table->setItem(i, 5, new QTableWidgetItem(QString("Null")));
+                ui->table->setItem(i, 3, new QTableWidgetItem(QString("Null")));
+                ui->table->setItem(i, 4, new QTableWidgetItem(QString("Null")));
+                ui->table->setItem(i, 5, new QTableWidgetItem(QString("Null")));
             }
 
             else{
                 creditTotal += entry.amount;
-                // ui->table->setItem(i, 0, new QTableWidgetItem(QString("Null")));
-                // ui->table->setItem(i, 1, new QTableWidgetItem(QString("Null")));
-                // ui->table->setItem(i, 2, new QTableWidgetItem(QString("Null")));
+                ui->table->setItem(i, 0, new QTableWidgetItem(QString("Null")));
+                ui->table->setItem(i, 1, new QTableWidgetItem(QString("Null")));
+                ui->table->setItem(i, 2, new QTableWidgetItem(QString("Null")));
                 ui->table->setItem(i, 3, new QTableWidgetItem(entry.date.toQString()));
                 ui->table->setItem(i, 4, new QTableWidgetItem(QString::fromStdString(particulars)));
                 ui->table->setItem(i, 5, new QTableWidgetItem(QString::number(entry.amount, 'f', 2)));
@@ -96,7 +96,7 @@ void ViewLedgerForAccount::on_display_button_clicked()
             i++;
             ui->table->setRowCount(i+1);
 
-            ui->table->setItem(i, 3, new QTableWidgetItem(QString("Date")));
+            ui->table->setItem(i, 3, new QTableWidgetItem(QString("Null")));
             ui->table->setItem(i, 4, new QTableWidgetItem(QString("To Balance c/d*")));
             ui->table->setItem(i, 5, new QTableWidgetItem(QString::number(debitTotal-creditTotal, 'f', 2)));
         }

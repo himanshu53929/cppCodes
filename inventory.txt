@@ -2,7 +2,7 @@ keyboard
 555
 55
 Mouse
-5
+8
 450
 Pikachu
 61
@@ -20,7 +20,7 @@ keyboard
 610
 55
 Mouse
-5
+8
 450
 Pikachu
 61
