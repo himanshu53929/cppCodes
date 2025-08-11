@@ -1,4 +1,26 @@
 #include "Report.h"
+#include <QDebug>
+
+
+void Report::init()
+{
+    TransactionManager tm;
+    bool state;
+    state = tm.loadFromFile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/transaction.txt");
+
+    if(state == false){
+        qDebug() << "Error!!! Transaction file loading failed";
+        exit(1);
+    }
+
+    Inventory inv;
+    state = inv.loadInventoryFromFile();
+
+    if(state == false){
+        qDebug() << "Error!!! Inventory file loading failed";
+    }
+
+}
 
 Report::Report(const TransactionManager &tm, const Inventory &inv): transactionManager(tm), inventory(inv) {}
 

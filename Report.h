@@ -14,6 +14,8 @@ private:
     const Inventory inventory;
 
 public:
+    //Initialization code for report
+    void init();
     // Constructor for binding data sources
     Report(const TransactionManager& tm, const Inventory& inv);
 

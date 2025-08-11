@@ -93,8 +93,7 @@ void ViewLedgerForAccount::on_display_button_clicked()
 
     else{
         if(debitTotal>creditTotal){
-            i++;
-            ui->table->setRowCount(i+1);
+            ui->table->setRowCount(i+2);
 
             ui->table->setItem(i, 3, new QTableWidgetItem(QString("Null")));
             ui->table->setItem(i, 4, new QTableWidgetItem(QString("To Balance c/d*")));
@@ -102,8 +101,7 @@ void ViewLedgerForAccount::on_display_button_clicked()
         }
 
         else{
-            i++;
-            ui->table->setRowCount(i+1);
+            ui->table->setRowCount(i+2);
 
             ui->table->setItem(i, 0, new QTableWidgetItem(QString("Date")));
             ui->table->setItem(i, 1, new QTableWidgetItem(QString("To Balance c/d*")));

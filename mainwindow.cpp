@@ -148,3 +148,21 @@ void MainWindow::on_submit_button_clicked()
     dialog->deleteLater();
 }
 
+
+void MainWindow::on_inventory_summary_button_clicked()
+{
+    hide();
+    generateInventorySummaryWin = new GenerateInventorySummaryWindow(this);
+    generateInventorySummaryWin -> show();
+}
+
+
+
+
+void MainWindow::on_balance_button_clicked()
+{
+    hide();
+    generateBalanceSheet = new GenerateBalanceSheet(this);
+    generateBalanceSheet -> show();
+}
+

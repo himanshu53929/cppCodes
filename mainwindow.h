@@ -15,6 +15,8 @@
 #include <QFont>
 #include "Report.h"
 #include <QMessageBox>
+#include "GenerateInventorySummaryWindow.h"
+#include "GenerateBalanceSheet.h"
 
 
 #include <QMainWindow>
@@ -53,6 +55,10 @@ private slots:
 
     void on_submit_button_clicked();
 
+    void on_inventory_summary_button_clicked();
+
+    void on_balance_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -75,5 +81,9 @@ private:
     QLineEdit* line;
 
     Report* ptr_report;
+
+    GenerateInventorySummaryWindow* generateInventorySummaryWin;
+
+    GenerateBalanceSheet* generateBalanceSheet;
 };
 #endif // MAINWINDOW_H

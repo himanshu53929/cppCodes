@@ -25,7 +25,7 @@ public:
     double getPriceByName(const std::string& itemName) const;
     void checkReorderAlerts();
     void saveInventoryToFile() const;
-    void loadInventoryFromFile();
+    bool loadInventoryFromFile();
     void copyInventoryItems(std::vector<Item>& itms) const;
     const std::vector<Item>& getItems() const;
 };

@@ -93,18 +93,21 @@ void Inventory::saveInventoryToFile() const
 //In future I will also add a code here to clear all the inventory
 
 //Reads all items from the inventory and assigns them to the vector
-void Inventory::loadInventoryFromFile()
+bool Inventory::loadInventoryFromFile()
 {
     std::ifstream infile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/inventory.txt");
 
-    if(infile){
-        Item I;
-        while (infile >> I.itemName >> I.quantity >> I.price) {
-            items.push_back(I);
-        }
+    if(!infile){
+        return false;
     }
 
-    return;
+    Item I;
+    while (infile >> I.itemName >> I.quantity >> I.price) {
+                items.push_back(I);
+          }
+
+
+    return true;
 }
 
 //Checks if the item is less than or equal to 15 and displays an alert message if it does

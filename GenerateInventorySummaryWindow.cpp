@@ -1,0 +1,63 @@
+#include "GenerateInventorySummaryWindow.h"
+#include "ui_GenerateInventorySummaryWindow.h"
+#include "Inventory.h"
+#include "TransactionManager.h"
+#include <QMessageBox>
+#include "Report.h"
+#include <QString>
+
+GenerateInventorySummaryWindow::GenerateInventorySummaryWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::GenerateInventorySummaryWindow)
+{
+    ui->setupUi(this);
+
+    ui->table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    TransactionManager transactionManager;
+    bool state;
+    state = transactionManager.loadFromFile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/transaction.txt");
+    if(state == false){
+        QMessageBox::critical(this, "Error", "File was not loaded sucessfully!!, Returning to main window");
+        if(parentWidget()){
+            parentWidget() -> show();
+        }
+
+        this -> close();
+    }
+
+    Inventory inventory;
+    inventory.loadInventoryFromFile();
+
+    Report report(transactionManager, inventory);
+
+    double totalValue = 0.0;
+    int totalItems = 0;
+
+    for (const auto& item : inventory.getItems()) {
+        totalItems += item.quantity;
+        totalValue += item.quantity * item.price;
+    }
+
+
+    ui->table->setRowCount(1);
+
+    ui->table->setItem(0, 0, new QTableWidgetItem(QString::number(inventory.getItems().size())));
+    ui->table->setItem(0, 1, new QTableWidgetItem(QString::number(totalItems)));
+    ui->table->setItem(0, 2, new QTableWidgetItem(QString::number(totalValue, 'f', 2)));
+}
+
+GenerateInventorySummaryWindow::~GenerateInventorySummaryWindow()
+{
+    delete ui;
+}
+
+void GenerateInventorySummaryWindow::on_back_button_clicked()
+{
+    if(parentWidget()){
+        parentWidget() -> show();
+    }
+
+    this -> close();
+}
+
