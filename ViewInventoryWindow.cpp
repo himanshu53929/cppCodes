@@ -12,7 +12,8 @@ ViewInventoryWindow::ViewInventoryWindow(QWidget *parent)
     ui->setupUi(this);
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    inventory.loadInventoryFromFile();
+    QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
+    inventory.loadInventoryFromFile(inventoryFilePath.toStdString());
     std::vector<Item> items;
     inventory.copyInventoryItems(items);
 

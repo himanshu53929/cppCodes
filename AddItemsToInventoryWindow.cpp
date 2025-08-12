@@ -55,7 +55,9 @@ void AddItemsToInventoryWindow::on_save_inventory_button_clicked()
     answer = QMessageBox::question(this, "From Hacker", "Do you really want to update the inventory?");
 
     if(answer == QMessageBox::Yes){
-        inventory.saveInventoryToFile();
+        QString filePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
+
+        inventory.saveInventoryToFile(filePath.toStdString());
     }
 
 }

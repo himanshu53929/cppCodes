@@ -37,7 +37,9 @@ void ViewLedgerForAccount::on_display_button_clicked()
 
     TransactionManager transactionManager;
     bool state;
-    state = transactionManager.loadFromFile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/transaction.txt");
+    QString filePath = QCoreApplication::applicationDirPath() + "/data/transaction.txt";
+
+    state = transactionManager.loadFromFile(filePath.toStdString());
     if(state == false){
         QMessageBox::critical(this, "Error", "File was not loaded sucessfully!!, Returning to main window");
         if(parentWidget()){
@@ -95,17 +97,17 @@ void ViewLedgerForAccount::on_display_button_clicked()
         if(debitTotal>creditTotal){
             ui->table->setRowCount(i+2);
 
-            ui->table->setItem(i, 3, new QTableWidgetItem(QString("Null")));
-            ui->table->setItem(i, 4, new QTableWidgetItem(QString("To Balance c/d*")));
-            ui->table->setItem(i, 5, new QTableWidgetItem(QString::number(debitTotal-creditTotal, 'f', 2)));
+            ui->table->setItem(i+1, 3, new QTableWidgetItem(QString("Null")));
+            ui->table->setItem(i+1, 4, new QTableWidgetItem(QString("To Balance c/d*")));
+            ui->table->setItem(i+1, 5, new QTableWidgetItem(QString::number(debitTotal-creditTotal, 'f', 2)));
         }
 
         else{
             ui->table->setRowCount(i+2);
 
-            ui->table->setItem(i, 0, new QTableWidgetItem(QString("Date")));
-            ui->table->setItem(i, 1, new QTableWidgetItem(QString("To Balance c/d*")));
-            ui->table->setItem(i, 2, new QTableWidgetItem(QString::number(debitTotal-creditTotal, 'f', 2)));
+            ui->table->setItem(i+1, 0, new QTableWidgetItem(QString("Date")));
+            ui->table->setItem(i+1, 1, new QTableWidgetItem(QString("To Balance c/d*")));
+            ui->table->setItem(i+1, 2, new QTableWidgetItem(QString::number(debitTotal-creditTotal, 'f', 2)));
         }
     }
 }

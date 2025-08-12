@@ -4,7 +4,7 @@
 #include "Inventory.h"
 #include <QMessageBox>
 #include "Report.h"
-#include "QString"
+#include <QString>
 
 ProfitLossWindow::ProfitLossWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,7 +14,9 @@ ProfitLossWindow::ProfitLossWindow(QWidget *parent)
 
     TransactionManager transactionManager;
     bool state;
-    state = transactionManager.loadFromFile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/transaction.txt");
+    QString filePath = QCoreApplication::applicationDirPath() + "/data/transaction.txt";
+
+    state = transactionManager.loadFromFile(filePath.toStdString());
     if(state == false){
         QMessageBox::critical(this, "Error", "File was not loaded sucessfully!!, Returning to main window");
         if(parentWidget()){
@@ -25,7 +27,9 @@ ProfitLossWindow::ProfitLossWindow(QWidget *parent)
     }
 
     Inventory inventory;
-    inventory.loadInventoryFromFile();
+
+    QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
+    inventory.loadInventoryFromFile(inventoryFilePath.toStdString());
 
     Report report(transactionManager, inventory);
 
@@ -47,16 +51,16 @@ ProfitLossWindow::ProfitLossWindow(QWidget *parent)
             particular = "To " + transaction.nature + " Balance";
             ui->table->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(particular)));
             ui->table->setItem(i, 1, new QTableWidgetItem(QString::number(income, 'f', 2)));
-            ui->table->setItem(i, 2, new QTableWidgetItem(QString("Null")));
-            ui->table->setItem(i, 3, new QTableWidgetItem(QString("Null")));
+            ui->table->setItem(i, 2, new QTableWidgetItem(QString("")));
+            ui->table->setItem(i, 3, new QTableWidgetItem(QString("")));
 
         }
 
         else {
             expense += transaction.amount;
             particular = "By " + transaction.nature + " Balance";
-            ui->table->setItem(i, 0, new QTableWidgetItem(QString("Null")));
-            ui->table->setItem(i, 1, new QTableWidgetItem(QString("Null")));
+            ui->table->setItem(i, 0, new QTableWidgetItem(QString("")));
+            ui->table->setItem(i, 1, new QTableWidgetItem(QString("")));
             ui->table->setItem(i, 2, new QTableWidgetItem(QString::fromStdString(particular)));
             ui->table->setItem(i, 3, new QTableWidgetItem(QString::number(expense, 'f', 2)));
         }
@@ -65,25 +69,37 @@ ProfitLossWindow::ProfitLossWindow(QWidget *parent)
     }
 
     if(income > expense){
-        ui->table->setRowCount(i+2);
+        ui->table->setRowCount(i+3);
 
-        particular = "By Balance cd*";
-        ui->table->setItem(i+1, 0, new QTableWidgetItem(QString("Null")));
-        ui->table->setItem(i+1, 1, new QTableWidgetItem(QString("Null")));
+        particular = "By Net Profit";
+        ui->table->setItem(i+1, 0, new QTableWidgetItem(QString("")));
+        ui->table->setItem(i+1, 1, new QTableWidgetItem(QString("")));
         ui->table->setItem(i+1, 2, new QTableWidgetItem(QString::fromStdString(particular)));
         ui->table->setItem(i+1, 3, new QTableWidgetItem(QString::number(income - expense, 'f', 2)));
+
+
+        ui->table->setItem(i+2, 0, new QTableWidgetItem(QString("Total")));
+        ui->table->setItem(i+2, 1, new QTableWidgetItem(QString::number(income)));
+
+        ui->table->setItem(i+2, 2, new QTableWidgetItem(QString("Total")));
+        ui->table->setItem(i+2, 3, new QTableWidgetItem(QString::number(income)));
     }
 
     else{
         ui->table->setRowCount(i+2);
 
-        particular = "To Balance cd*";
+        particular = "To Net Loss";
         ui->table->setItem(i+1, 0, new QTableWidgetItem(QString::fromStdString(particular)));
         ui->table->setItem(i+1, 1, new QTableWidgetItem(QString::number(expense - income, 'f', 2)));
-        ui->table->setItem(i+1, 2, new QTableWidgetItem(QString("Null")));
-        ui->table->setItem(i+1, 3, new QTableWidgetItem(QString("Null")));
-    }
+        ui->table->setItem(i+1, 2, new QTableWidgetItem(QString("")));
+        ui->table->setItem(i+1, 3, new QTableWidgetItem(QString("")));
 
+        ui->table->setItem(i+2, 0, new QTableWidgetItem(QString("Total")));
+        ui->table->setItem(i+2, 1, new QTableWidgetItem(QString::number(expense)));
+
+        ui->table->setItem(i+2, 2, new QTableWidgetItem(QString("Total")));
+        ui->table->setItem(i+2, 3, new QTableWidgetItem(QString::number(expense)));
+    }
 
 
 }

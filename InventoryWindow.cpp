@@ -53,7 +53,9 @@ void InventoryWindow::on_pushButton_clicked()
 
         //To get the price of the item
         inventory = new Inventory;
-        inventory->loadInventoryFromFile();
+
+        QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
+        inventory->loadInventoryFromFile(inventoryFilePath.toStdString());
 
         data::rate = inventory->getPriceByName(data::item_name.toStdString());
 
@@ -69,14 +71,18 @@ void InventoryWindow::on_pushButton_clicked()
                 data::type = "debit";
                 data::debit = data::amount;
                 data::credit = 0.0;
-                inventory->updateQuantity(data::item_name.toStdString(), -data::quantity); // reduce stock
+
+                QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
+                inventory->updateQuantity(data::item_name.toStdString(), -data::quantity, inventoryFilePath.toStdString()); // reduce stock
             }
 
             else {
                 data::type = "credit";
                 data::credit = data::amount;
                 data::debit = 0.0;
-                inventory->updateQuantity(data::item_name.toStdString(), data::quantity); // increase stock
+
+                QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
+                inventory->updateQuantity(data::item_name.toStdString(), data::quantity, inventoryFilePath.toStdString()); // increase stock
             }
 
             Date date(data::date);
@@ -113,7 +119,9 @@ void InventoryWindow::on_save_transaction_btn_clicked()
     reply = QMessageBox::question(this, "From Hacker", "Do you really want to save the current transaction?");
 
     if(reply == QMessageBox::Yes){
-        data::transaction.saveToFile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/transaction.txt");
+        QString filePath = QCoreApplication::applicationDirPath() + "/data/transaction.txt";
+
+        data::transaction.saveToFile(filePath.toStdString());
         QMessageBox::information(this, "From Hacker", "Transaction saved Sucessfully!!");
     }
 

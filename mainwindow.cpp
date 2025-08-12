@@ -17,7 +17,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     TransactionManager transactionManager;
     bool state;
-    state = transactionManager.loadFromFile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/transaction.txt");
+    QString filePath = QCoreApplication::applicationDirPath() + "/data/transaction.txt";
+
+    state = transactionManager.loadFromFile(filePath.toStdString());
     if(state == false){
         QMessageBox::critical(this, "Error", "File was not loaded sucessfully!!, Returning to main window");
         if(parentWidget()){
@@ -28,7 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     Inventory inventory;
-    inventory.loadInventoryFromFile();
+    QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
+    inventory.loadInventoryFromFile(inventoryFilePath.toStdString());
 
     ptr_report = new Report(transactionManager, inventory);
 

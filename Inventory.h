@@ -20,12 +20,12 @@ public:
     //void input();
     bool addItem(Item& I);
     void updatePrice(const std:: string nam, const int& p);
-    void updateQuantity(const std::string nam, const int& q);
+    void updateQuantity(const std::string nam, const int& q, const std::string& filename);
     void viewInventory() const;
     double getPriceByName(const std::string& itemName) const;
     void checkReorderAlerts();
-    void saveInventoryToFile() const;
-    bool loadInventoryFromFile();
+    void saveInventoryToFile(const std::string& filename) const;
+    bool loadInventoryFromFile(const std::string& filename);
     void copyInventoryItems(std::vector<Item>& itms) const;
     const std::vector<Item>& getItems() const;
 };

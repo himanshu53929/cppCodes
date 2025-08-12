@@ -43,7 +43,7 @@ void Inventory::updatePrice(const std::string nam, const int &p)
 }
 
 //Updates inventory based on the quantity
-void Inventory::updateQuantity(const std::string nam, const int& q)
+void Inventory::updateQuantity(const std::string nam, const int& q, const std::string& filename)
 {
     for(Item &I: items){
         if(nam == I.itemName){
@@ -52,7 +52,7 @@ void Inventory::updateQuantity(const std::string nam, const int& q)
     }
 
     //I will also add some code here to check if the quantity is 0 and then remove it
-    std::ofstream outfile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/inventory.txt", std::ios::out);
+    std::ofstream outfile(filename, std::ios::out);
 
     for(const Item& I: items){
         outfile<<I.itemName<<std::endl;
@@ -77,9 +77,9 @@ void Inventory::viewInventory() const
 }
 
 //Writes all items present in the vector to the file
-void Inventory::saveInventoryToFile() const
+void Inventory::saveInventoryToFile(const std::string& filename) const
 {
-    std::ofstream outfile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/inventory.txt", std::ios::app);
+    std::ofstream outfile(filename, std::ios::app);
 
     for(const Item& I: items){
         outfile<<I.itemName<<std::endl;
@@ -93,9 +93,9 @@ void Inventory::saveInventoryToFile() const
 //In future I will also add a code here to clear all the inventory
 
 //Reads all items from the inventory and assigns them to the vector
-bool Inventory::loadInventoryFromFile()
+bool Inventory::loadInventoryFromFile(const std::string& filename)
 {
-    std::ifstream infile("D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/inventory.txt");
+    std::ifstream infile(filename);
 
     if(!infile){
         return false;

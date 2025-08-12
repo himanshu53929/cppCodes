@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <QCoreApplication>
+#include <QString>
 
 Transaction::Transaction()
     : account(0), type(""), nature(""), itemName(""), description(""),
@@ -78,12 +80,16 @@ void Transaction::input(Inventory& inventory) {
         type = "debit";
         debit = amount;
         credit = 0.0;
-        inventory.updateQuantity(itemName, -quantity); // reduce stock
+        QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
+
+        inventory.updateQuantity(itemName, -quantity, inventoryFilePath.toStdString()); // reduce stock
     } else {
         type = "credit";
         credit = amount;
         debit = 0.0;
-        inventory.updateQuantity(itemName, quantity); // increase stock
+        QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
+
+        inventory.updateQuantity(itemName, quantity, inventoryFilePath.toStdString()); // increase stock
     }
 
     std::cout << "Enter date of transaction:\n";
