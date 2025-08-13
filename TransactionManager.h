@@ -5,7 +5,6 @@
 #ifndef TRANSACTIONMANAGER_H
 #define TRANSACTIONMANAGER_H
 #include "Transaction.h"
-#include "Date.h"
 #include <vector>
 
 class TransactionManager {

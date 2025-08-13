@@ -7,19 +7,133 @@
     <x>0</x>
     <y>0</y>
     <width>1114</width>
-    <height>847</height>
+    <height>692</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">/* ---------- Main Window ---------- */
+QWidget {
+    background-color: #E0F7FA;  /* Soft turquoise */
+}
+
+/* ---------- Title Label ---------- */
+QLabel#label {
+    color: #00796B;                     /* Deep teal */
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    qproperty-alignment: AlignHCenter;
+}
+
+/* ---------- Dr. and Cr. Labels ---------- */
+QLabel#label_3,
+QLabel#label_2 {
+    color: #455A64;                     /* Slate gray */
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ---------- Back Button ---------- */
+QPushButton#back_button {
+    background-color: #FF6F61;          /* Coral pink */
+    color: #FFFFFF;
+    border: 2px solid #FF8A80;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    min-height: 20px;
+    min-width: 140px;
+}
+QPushButton#back_button:hover {
+    background-color: #E65C50;
+    border-color: #FFAB91;
+}
+QPushButton#back_button:pressed {
+    background-color: #CC4A3F;
+    padding-top: 11px;
+    padding-bottom: 9px;
+}
+
+/* ---------- Table Widget ---------- */
+QTableWidget {
+    background-color: #FFFFFF;
+    border: 1px solid #B0BEC5;
+    gridline-color: #CFD8DC;
+    color: #37474F;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 14px;
+    alternate-background-color: #F5F5F5;
+    selection-background-color: #B2EBF2;
+    selection-color: #000000;
+}
+QTableWidget::item {
+    padding: 6px;
+}
+QTableWidget::item:selected {
+    background-color: #B2EBF2;
+    color: #000000;
+}
+
+/* ---------- Table Headers ---------- */
+QHeaderView::section {
+    background-color: #00BCD4;  /* Cyan header */
+    color: #FFFFFF;
+    padding: 6px 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+QHeaderView::section:hover {
+    background-color: #00ACC1;
+}
+QTableCornerButton::section {
+    background-color: #00BCD4;
+    border: none;
+}
+
+/* ---------- Scrollbars ---------- */
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 2px;
+}
+QScrollBar::handle:vertical {
+    background: #B0BEC5;
+    min-height: 24px;
+    border-radius: 5px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #90A4AE;
+}
+QScrollBar:horizontal {
+    background: transparent;
+    height: 10px;
+    margin: 2px;
+}
+QScrollBar::handle:horizontal {
+    background: #B0BEC5;
+    min-width: 24px;
+    border-radius: 5px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: #90A4AE;
+}</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
+        <family>Segoe UI</family>
+        <pointsize>-1</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -27,7 +141,7 @@
        <string>Profit and Loss Account</string>
       </property>
       <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
+       <set>Qt::AlignmentFlag::AlignHCenter</set>
       </property>
      </widget>
     </item>

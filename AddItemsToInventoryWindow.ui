@@ -14,66 +14,97 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">/* ---------- Main Window ---------- */
+QWidget {
+    background-color: #E0F7FA;  /* Soft mint green */
+}
+
+QLabel#label {
+    color: #00796B;                           /* Deep teal */
+    font-family: &quot;Segoe UI&quot;, sans-serif;      /* Clean and modern */
+    font-size: 35px;                          /* Increased font size */
+    font-weight: bold;
+    qproperty-alignment: 'AlignHCenter';
+}
+
+
+/* ---------- Field Labels ---------- */
+QLabel#label_2, QLabel#label_3, QLabel#label_4 {
+    color: #455A64;   /* Slate gray */
+    font-family: &quot;Arial&quot;, sans-serif;
+    font-size: 20px;
+}
+
+/* ---------- QLineEdit Fields ---------- */
+QLineEdit {
+    background-color: white;
+    border: 2px solid #0288D1;    /* Cool blue border */
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 14px;
+    color: #333333;
+}
+
+QLineEdit:focus {
+    border: 2px solid #00BCD4;    /* Cyan highlight on focus */
+}
+
+/* ---------- Interactive Buttons (Save Inventory) ---------- */
+QPushButton#save_inventory_button {
+    background-color: #00BCD4;  /* Vibrant cyan */
+    color: white;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+}
+
+QPushButton#save_inventory_button:hover {
+    background-color: #00acc1;
+}
+
+QPushButton#save_inventory_button:pressed {
+    background-color: #0097a7;
+    padding-top: 9px;
+    padding-bottom: 7px;
+}
+
+/* ---------- Back Button ---------- */
+QPushButton#back_btn {
+    background-color: #FF6F61;   /* Coral pink */
+    color: white;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+}
+
+QPushButton#back_btn:hover {
+    background-color: #e65c50;
+}
+
+QPushButton#back_btn:pressed {
+    background-color: #cc4a3f;
+}
+
+/* ---------- Optional Subtle Shadow for Labels ---------- */
+QLabel {
+    text-shadow: 1px 1px 2px #000000;
+}</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="5" column="2">
-     <widget class="QPushButton" name="add_item">
-      <property name="text">
-       <string>Add Item</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="item_name"/>
-    </item>
-    <item row="0" column="0" colspan="2">
-     <widget class="QLabel" name="label">
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Enter the Detais of the Item Below: </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="item_price"/>
-    </item>
-    <item row="0" column="2">
-     <widget class="QPushButton" name="back_btn">
-      <property name="text">
-       <string>Back to Main Menu</string>
-      </property>
-     </widget>
-    </item>
     <item row="4" column="1">
      <widget class="QLineEdit" name="item_quantity"/>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Price:</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
-      </property>
-     </widget>
     </item>
     <item row="4" column="0">
      <widget class="QLabel" name="label_4">
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <family>Arial</family>
+        <pointsize>-1</pointsize>
        </font>
       </property>
       <property name="text">
@@ -84,11 +115,38 @@
       </property>
      </widget>
     </item>
+    <item row="5" column="2">
+     <widget class="QPushButton" name="save_inventory_button">
+      <property name="text">
+       <string>Save Inventory</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>-1</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Price:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="item_price"/>
+    </item>
     <item row="2" column="0">
      <widget class="QLabel" name="label_2">
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <family>Arial</family>
+        <pointsize>-1</pointsize>
        </font>
       </property>
       <property name="text">
@@ -99,12 +157,32 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="2">
-     <widget class="QPushButton" name="save_inventory_button">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="back_btn">
       <property name="text">
-       <string>Save Inventory</string>
+       <string>Back to Main Menu</string>
       </property>
      </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Enter the Detais of the Item Below: </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignHCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="item_name"/>
     </item>
    </layout>
   </widget>

@@ -1,12 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "User.h"
-// #include <iostream>
-// #include "Inventory.h"
-// #include "Transaction.h"
-// #include "TransactionManager.h"
-// #include "Ledger.h"
-
 #include<QString>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -15,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-
+    showMaximized();
     TransactionManager transactionManager;
     bool state;
     QString filePath = QCoreApplication::applicationDirPath() + "/data/transaction.txt";
@@ -63,7 +57,8 @@ void MainWindow::on_view_inventory_clicked()
 
 void MainWindow::on_add_items_to_inventory_clicked()
 {   User user;
-    QString userFilePath = "D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/data/user.txt";
+
+    QString userFilePath = QCoreApplication::applicationDirPath() + "/data/user.txt";
     user.loadUsersFromFile(userFilePath.toStdString());
     if(user.isAdmin(User::currentUser))
     {
@@ -147,7 +142,8 @@ void MainWindow::on_submit_button_clicked()
     QString fileName;
     fileName = line->text();
     bool state;
-    state = ptr_report->exportReport(fileName.toStdString());
+    std::string file = fileName.toStdString();
+    state = ptr_report->exportReport(file);
 
     if(state == false){
         QMessageBox:: critical(this, "Error", "File wasn't exported sucessfully!!!");
@@ -176,9 +172,9 @@ void MainWindow::on_add_user_button_clicked()
 {
     User user;
 
-    std::string userFilePath = "D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/data/user.txt";
+    QString userFilePath = QCoreApplication::applicationDirPath() + "/data/user.txt";
 
-    user.loadUsersFromFile(userFilePath);
+    user.loadUsersFromFile(userFilePath.toStdString());
 
     if(user.isAdmin(User::currentUser)){
         newUser = new QDialog();
@@ -251,9 +247,9 @@ void MainWindow::on_submit_newUser_button_clicked()
     QString userRole = newUserRole->text();
 
     User user;
-    std::string userFilePath = "D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/data/user.txt";
+        QString userFilePath = QCoreApplication::applicationDirPath() + "/data/user.txt";
 
-    user.loadUsersFromFile(userFilePath);
+    user.loadUsersFromFile(userFilePath.toStdString());
 
     bool state = user.registerUser(userName.toStdString(), userPassword.toStdString(), userRole.toStdString());
 
@@ -267,5 +263,19 @@ void MainWindow::on_submit_newUser_button_clicked()
 
     newUser->close();
     newUser->deleteLater();
+}
+
+
+void MainWindow::on_log_out_button_clicked()
+{
+    QMessageBox:: StandardButton answer;
+    answer = QMessageBox:: question(this, "Confirmation", "Are you sure to Log Out?");
+
+    if(answer == QMessageBox:: Yes){
+        userLoginWindow = new UserLoginWindow;
+        userLoginWindow -> show();
+
+        this -> close();
+    }
 }
 

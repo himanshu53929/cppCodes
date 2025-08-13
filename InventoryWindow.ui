@@ -13,13 +13,88 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+    background-color: #F6EFA6;
+}
+
+/* Labels */
+#label_2{
+    font-size: 30px;
+    font-weight: bold;
+    color: #333333;
+	padding: 10px;
+}
+
+
+QLabel {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+
+/* Input fields: LineEdit, ComboBox, SpinBox, DateEdit */
+QLineEdit, QComboBox, QSpinBox, QDateEdit {
+    border: 2px solid #dcdcdc;
+    border-radius: 6px;
+    padding: 4px 8px;
+    background-color: #989688;
+    font-size: 13px;
+	color: black;
+}
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus, QDateEdit:focus {
+    border: 2px solid #5dade2;
+    background-color: #f0faff;
+}
+
+/* TextEdit */
+QTextEdit {
+    border: 2px solid #dcdcdc;
+    border-radius: 6px;
+    background-color: #989688;
+    padding: 6px;
+	color: black;
+    font-size: 13px;
+}
+QTextEdit:focus {
+    border: 2px solid #5dade2;
+    background-color: #f0faff;
+}
+
+/* Push Buttons */
+QPushButton {
+    background-color: #5dade2;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+}
+QPushButton:hover {
+    background-color: #3498db;
+}
+QPushButton:pressed {
+    background-color: #2e86c1;
+}
+
+/* ComboBox Hover Effect */
+QComboBox:hover {
+    border: 2px solid #5dade2;
+}
+</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="10" column="3">
      <widget class="QPushButton" name="pushButton">
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -31,7 +106,7 @@
      <widget class="QTextEdit" name="description">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
        </font>
       </property>
      </widget>
@@ -40,7 +115,8 @@
      <widget class="QLabel" name="label_7">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -55,7 +131,8 @@
      <widget class="QLabel" name="label">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -70,7 +147,8 @@
      <widget class="QPushButton" name="add_transaction_btn">
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -82,7 +160,8 @@
      <widget class="QLabel" name="label_3">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -97,7 +176,7 @@
      <widget class="QDateEdit" name="date">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
        </font>
       </property>
      </widget>
@@ -106,7 +185,8 @@
      <widget class="QLabel" name="label_5">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -121,7 +201,7 @@
      <widget class="QSpinBox" name="quantity">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
        </font>
       </property>
      </widget>
@@ -130,7 +210,7 @@
      <widget class="QLineEdit" name="item_name">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
        </font>
       </property>
      </widget>
@@ -139,7 +219,7 @@
      <widget class="QLineEdit" name="account_no">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
        </font>
       </property>
      </widget>
@@ -148,7 +228,8 @@
      <widget class="QLabel" name="label_4">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -163,7 +244,7 @@
      <widget class="QComboBox" name="transaction_nature">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
        </font>
       </property>
       <item>
@@ -192,7 +273,7 @@
      <widget class="QLabel" name="label_2">
       <property name="font">
        <font>
-        <pointsize>22</pointsize>
+        <pointsize>-1</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -205,7 +286,8 @@
      <widget class="QLabel" name="label_6">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -220,7 +302,8 @@
      <widget class="QPushButton" name="save_transaction_btn">
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -232,7 +315,8 @@
      <widget class="QPushButton" name="back_btn">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">

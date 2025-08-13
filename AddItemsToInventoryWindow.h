@@ -16,7 +16,6 @@ public:
     ~AddItemsToInventoryWindow();
 
 private slots:
-    void on_add_item_clicked();
 
     void on_back_btn_clicked();
 

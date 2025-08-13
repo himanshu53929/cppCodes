@@ -36,10 +36,7 @@ public:
                 const Date& d);
 
 
-    void input(Inventory& inventory); // Accept inventory reference
-    void display() const;
     void saveToFile(const std::string& filename) const;
-    void setDebitCredit(std::string type, int quantity);
 };
 
 #endif

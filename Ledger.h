@@ -5,7 +5,6 @@
 #include <string>
 #include "Date.h"
 #include "Transaction.h"
-#include "TransactionManager.h"
 
 class LedgerEntry {
 public:
@@ -24,8 +23,6 @@ public:
     LedgerEntry(int acc, const std::string& nat, const std::string& item,
                 int qty, double r, const std::string& desc,
                 const std::string& t, const Date& d);
-
-    void displayStyled() const;
 };
 
 class Ledger {
@@ -36,7 +33,6 @@ public:
     std::vector<LedgerEntry> returnLedger();
     void loadFromTransactions(const std::vector<Transaction>& txList);
     void addEntry(const LedgerEntry& entry);
-    void displayStyledLedger(int account) const;
 };
 
 #endif

@@ -16,6 +16,7 @@
 #include "Report.h"
 #include <QMessageBox>
 #include "GenerateInventorySummaryWindow.h"
+#include "UserLoginWindow.h"
 
 
 #include <QMainWindow>
@@ -60,6 +61,8 @@ private slots:
 
     void on_submit_newUser_button_clicked();
 
+    void on_log_out_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -88,6 +91,8 @@ private:
     Report* ptr_report;
 
     GenerateInventorySummaryWindow* generateInventorySummaryWin;
+
+    UserLoginWindow* userLoginWindow;
 
 
 };

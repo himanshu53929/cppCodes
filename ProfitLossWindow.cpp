@@ -12,6 +12,8 @@ ProfitLossWindow::ProfitLossWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    showMaximized();
+
     TransactionManager transactionManager;
     bool state;
     QString filePath = QCoreApplication::applicationDirPath() + "/data/transaction.txt";

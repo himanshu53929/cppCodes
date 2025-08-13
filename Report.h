@@ -4,13 +4,10 @@
 #include "TransactionManager.h"
 #include "Inventory.h"
 #include <string>
-#include <fstream>
-#include <iostream>
-#include <iomanip>
 
 class Report {
 private:
-    const TransactionManager transactionManager;
+    TransactionManager transactionManager;
     const Inventory inventory;
 
 public:
@@ -20,14 +17,12 @@ public:
     // Generates profit or loss summary from sales and purchases
     void generateProfitLoss();
 
-    // Generates a basic balance sheet from inventory + transaction data
-    void generateBalanceSheet();
 
     // Displays key inventory statistics like total value, item count, etc.
     void generateInventorySummary();
 
     // Exports report to a file
-    bool exportReport(const std::string& reportName);
+    bool exportReport(std::string& reportName);
 };
 
 #endif // REPORT_H

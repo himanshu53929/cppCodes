@@ -6,61 +6,132 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1114</width>
+    <width>1011</width>
     <height>744</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Accounting App</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+    background-color: #D2B48C;  /* Light brown background */
+}
+
+/* Style for all QPushButtons except logout */
+QPushButton {
+    background-color: #03CEA4;       /* Teal green */
+    color: white;                    /* White text */
+    border-radius: 6px;               /* Rounded corners */
+    padding: 6px 14px;                /* Inner padding */
+    font-size: 16px;                  /* Text size */
+    font-weight: bold;                /* Bold text */
+    border: none;                     /* No border */
+}
+
+QPushButton:hover {
+    background-color: #02b895;        /* Slightly darker teal on hover */
+}
+
+QPushButton:pressed {
+    background-color: #029a7d;        /* Dark teal when pressed */
+    padding-top: 7px;                  /* Slight press effect */
+    padding-bottom: 5px;
+}
+
+QPushButton:disabled {
+    background-color: #95a5a6;        /* Greyed out */
+    color: #7f8c8d;
+}
+
+/* Logout button retains its own style */
+QPushButton#log_out_button {
+    background-color: #e74c3c; 
+    color: white; 
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+}
+
+QPushButton#log_out_button:hover {
+    background-color: #c0392b;
+}
+
+QPushButton#log_out_button:pressed {
+    background-color: #922b21;
+    padding-top: 7px;
+    padding-bottom: 5px;
+}
+
+QPushButton#log_out_button:disabled {
+    background-color: #bdc3c7;
+    color: #7f8c8d;
+}
+</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="11" column="0">
-     <widget class="QPushButton" name="add_items_to_inventory">
-      <property name="text">
-       <string>Add Items to Inventory( Only for Admins)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="15" column="0">
-     <widget class="QPushButton" name="export_report_button">
-      <property name="text">
-       <string>Export Report</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="0">
-     <widget class="QPushButton" name="view_inventory">
-      <property name="text">
-       <string>View Invetory</string>
-      </property>
-     </widget>
-    </item>
-    <item row="12" column="0">
-     <widget class="QPushButton" name="view_ledger_for_account">
-      <property name="text">
-       <string>View Ledger for Accocunt</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QPushButton" name="add_transaction">
-      <property name="text">
-       <string>Add Transaction</string>
-      </property>
-     </widget>
-    </item>
     <item row="9" column="0">
      <widget class="QPushButton" name="view_tansaction">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>View Transaction</string>
       </property>
      </widget>
     </item>
+    <item row="6" column="0">
+     <widget class="QPushButton" name="add_transaction">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Add Transaction</string>
+      </property>
+     </widget>
+    </item>
     <item row="13" column="0">
      <widget class="QPushButton" name="profit_loss_button">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Generate Profit and Loss Report</string>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="0">
+     <widget class="QPushButton" name="view_ledger_for_account">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>View Ledger for Accocunt</string>
+      </property>
+     </widget>
+    </item>
+    <item row="18" column="0">
+     <widget class="QPushButton" name="exit">
+      <property name="styleSheet">
+       <string notr="true">background-color: pink;</string>
+      </property>
+      <property name="text">
+       <string>Exit</string>
       </property>
      </widget>
     </item>
@@ -68,8 +139,28 @@
      <widget class="QLabel" name="label_2">
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <family>Segoe UI</family>
+        <pointsize>-1</pointsize>
+        <fontweight>DemiBold</fontweight>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#label_2 {
+    color: #03CEA4;                   /* Teal text color */
+    font-size: 26px;                   /* Medium font size */
+    font-weight: 600;                  /* Semi-bold */
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    padding: 6px 10px;                 /* Some inner spacing */
+    border: 2px;         /* Border with matching color */
+    border-radius: 6px;                /* Rounded corners */
+}
+
+QLabel#label_2:hover {
+    background-color: rgba(3, 206, 164, 0.2); /* Slightly brighter background */
+    color: white;                             /* White text on hover */
+    border-color: white;                      /* White border on hover */
+}
+</string>
       </property>
       <property name="text">
        <string>Select a option from below: </string>
@@ -79,17 +170,68 @@
       </property>
      </widget>
     </item>
-    <item row="17" column="0">
-     <widget class="QPushButton" name="exit">
+    <item row="11" column="0">
+     <widget class="QPushButton" name="add_items_to_inventory">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>Exit</string>
+       <string>Add Items to Inventory( Only for Admins)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="15" column="0">
+     <widget class="QPushButton" name="export_report_button">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Export Report</string>
+      </property>
+     </widget>
+    </item>
+    <item row="16" column="0">
+     <widget class="QPushButton" name="add_user_button">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Add User( Only for Admins)</string>
       </property>
      </widget>
     </item>
     <item row="14" column="0">
      <widget class="QPushButton" name="inventory_summary_button">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Generate Inventory Summary</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
+     <widget class="QPushButton" name="view_inventory">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>View Inventory</string>
       </property>
      </widget>
     </item>
@@ -97,9 +239,22 @@
      <widget class="QLabel" name="label">
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <family>Comic Sans MS</family>
+        <pointsize>-1</pointsize>
         <bold>true</bold>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#label {
+	color: #FF6F00;                   /* White text */
+    font-size: 40px;                  /* Large text size */
+    font-weight: bold;                /* Bold font */
+    font-family: &quot;Comic Sans MS&quot;, &quot;Segoe Script&quot;, cursive;
+    padding: 10px;                    /* Space inside the label */
+    letter-spacing: 1px;              /* Slight spacing between letters */
+    background-color: transparent;    /* No background fill */
+}
+</string>
       </property>
       <property name="text">
        <string>Welcome to Accounting App</string>
@@ -109,10 +264,43 @@
       </property>
      </widget>
     </item>
-    <item row="16" column="0">
-     <widget class="QPushButton" name="add_user_button">
+    <item row="17" column="0">
+     <widget class="QPushButton" name="log_out_button">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#log_out_button {
+    background-color: #e74c3c;       /* Bright red background */
+    color: white;                    /* White text */
+    border-radius: 8px;               /* Rounded corners */
+    padding: 6px 14px;                /* Inner padding */
+    font-size: 14px;                  /* Text size */
+    font-weight: bold;                /* Bold text */
+    border: none;                     /* No border */
+}
+
+QPushButton#log_out_button:hover {
+    background-color: #c0392b;       /* Darker red on hover */
+}
+
+QPushButton#log_out_button:pressed {
+    background-color: #922b21;       /* Even darker red when pressed */
+    padding-top: 7px;                 /* Slight press effect */
+    padding-bottom: 5px;
+}
+
+QPushButton#log_out_button:disabled {
+    background-color: #bdc3c7;       /* Greyed out when disabled */
+    color: #7f8c8d;
+}
+</string>
+      </property>
       <property name="text">
-       <string>Add User</string>
+       <string>Log Out</string>
       </property>
      </widget>
     </item>
@@ -123,10 +311,16 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1114</width>
+     <width>1011</width>
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+   </widget>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

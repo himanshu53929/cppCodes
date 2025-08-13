@@ -10,6 +10,9 @@ ViewInventoryWindow::ViewInventoryWindow(QWidget *parent)
     , ui(new Ui::ViewInventoryWindow)
 {
     ui->setupUi(this);
+
+    showMaximized();
+
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";

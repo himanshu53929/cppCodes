@@ -1,7 +1,6 @@
 #include "Transaction.h"
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <QCoreApplication>
 #include <QString>
 
@@ -44,71 +43,6 @@ Transaction::Transaction(int acc,
 
 }
 
-// Input function now depends on Inventory
-void Transaction::input(Inventory& inventory) {
-    std::cout << "Enter account number: ";
-    std::cin >> account;
-
-    std::cout << "Enter nature of transaction (sales, purchase, sales return, purchase return): ";
-    std::cin >> nature;
-
-    if (nature != "sales" && nature != "purchase" &&
-        nature != "sales return" && nature != "purchase return") {
-        std::cerr << "Invalid transaction nature.\n";
-        return;
-    }
-
-    std::cout << "Enter item name: ";
-    std::cin >> itemName;
-
-    rate = inventory.getPriceByName(itemName);
-    if (rate == -1) {
-        std::cerr << "Item not found in inventory.\n";
-        return;
-    }
-
-    std::cout << "Enter quantity: ";
-    std::cin >> quantity;
-
-    std::cin.ignore(); // clear input buffer
-    std::cout << "Enter description: ";
-    std::getline(std::cin, description);
-
-    amount = quantity * rate;
-
-    if(nature == "sales" || nature == "purchase return") {
-        type = "debit";
-        debit = amount;
-        credit = 0.0;
-        QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
-
-        inventory.updateQuantity(itemName, -quantity, inventoryFilePath.toStdString()); // reduce stock
-    } else {
-        type = "credit";
-        credit = amount;
-        debit = 0.0;
-        QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
-
-        inventory.updateQuantity(itemName, quantity, inventoryFilePath.toStdString()); // increase stock
-    }
-
-    std::cout << "Enter date of transaction:\n";
-    date.setDate();
-}
-
-// Displays transaction details
-void Transaction::display() const {
-    std::cout << "\n--- Transaction Details ---\n";
-    std::cout << "Account No: " << account << "\n";
-    std::cout << "Nature: " << nature << " (" << type << ")\n";
-    std::cout << "Item: " << itemName << "\n";
-    std::cout << "Quantity: " << quantity << "\n";
-    std::cout << "Rate: " << rate << "\n";
-    std::cout << "Amount: " << amount << "\n";
-    std::cout << "Description: " << description << "\n";
-
-    std::cout << "Date: " << date << "\n";
-}
 
 // Saves transaction to file
 void Transaction::saveToFile(const std::string& filename) const {

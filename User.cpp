@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <QDebug>
+#include <QCoreApplication>
 
 std::vector<User> User::users;
 std::string User::currentUser;
@@ -13,6 +14,7 @@ std::string User::currentUser;
 // }
 
 User::User(const std::string& uname,const std::string& pass,const std::string& r): username(uname), password(pass), role(r) {}
+
 void User::loadUsersFromFile(const std::string& fileName){
     std::ifstream infile(fileName);
 
@@ -62,10 +64,8 @@ bool User::registerUser(const std::string &uname,const std::string &pass,const s
         }
     }
 
-    std::string userFilePath;
-    userFilePath = "D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/data/user.txt";
-
-    std::ofstream outfile(userFilePath, std::ios::app);
+    QString userFilePath = QCoreApplication::applicationDirPath() + "/data/user.txt";
+    std::ofstream outfile(userFilePath.toStdString(), std::ios::app);
     if(!outfile){
         qDebug()<<"File not opened\n";
         return false;

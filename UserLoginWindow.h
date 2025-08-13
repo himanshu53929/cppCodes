@@ -18,8 +18,12 @@ public:
 private slots:
     void on_submit_button_clicked();
 
+    void on_actionrefresh_triggered();
+
 private:
     Ui::UserLoginWindow *ui;
+
+    void setRandomMessage();
 };
 
 #endif // USERLOGINWINDOW_H

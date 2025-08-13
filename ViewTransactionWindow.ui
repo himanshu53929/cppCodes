@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1157</width>
+    <width>1490</width>
     <height>824</height>
    </rect>
   </property>
@@ -14,12 +14,92 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">/* ---------- Main Window ---------- */
+QWidget {
+    background-color: #F3F4F6;  /* Soft gray-blue for a clean, neutral base */
+}
+
+/* ---------- Title Label ---------- */
+QLabel#label {
+    color: #3F51B5;                     /* Indigo for a bold, modern feel */
+    font-family: &quot;Verdana&quot;, sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    qproperty-alignment: AlignHCenter;
+    border-bottom: 2px solid #C5CAE9;
+    padding-bottom: 8px;
+}
+
+
+/* ---------- Back Button ---------- */
+QPushButton#pushButton {
+    background-color: #FFCA28;          /* Warm amber for contrast */
+    color: #212121;
+    border: 2px solid #FFD54F;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: &quot;Verdana&quot;, sans-serif;
+}
+QPushButton#pushButton:hover {
+    background-color: #FFC107;
+    border-color: #FFB300;
+}
+QPushButton#pushButton:pressed {
+    background-color: #FFA000;
+    padding-top: 11px;
+    padding-bottom: 9px;
+}
+
+
+/* ---------- Table Widget ---------- */
+QTableWidget {
+    background-color: #FFFFFF;
+    border: 1px solid #BDBDBD;
+    gridline-color: #E0E0E0;
+    color: #212121;
+    font-family: &quot;Verdana&quot;, sans-serif;
+    font-size: 14px;
+    alternate-background-color: #FAFAFA;
+    selection-background-color: #C5CAE9;
+    selection-color: #000000;
+}
+QTableWidget::item {
+    padding: 6px;
+}
+QTableWidget::item:selected {
+    background-color: #C5CAE9;
+    color: #000000;
+}
+
+/* ---------- Table Headers ---------- */
+QHeaderView::section {
+    background-color: #3F51B5;  /* Indigo header */
+    color: #FFFFFF;
+    padding: 6px 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: &quot;Verdana&quot;, sans-serif;
+}
+QHeaderView::section:hover {
+    background-color: #303F9F;
+}
+QTableCornerButton::section {
+    background-color: #3F51B5;
+    border: none;
+}
+</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
+        <family>Verdana</family>
+        <pointsize>-1</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -27,24 +107,26 @@
        <string>                                                                           Transaction Details                                                                        </string>
       </property>
       <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
+       <set>Qt::AlignmentFlag::AlignHCenter</set>
       </property>
      </widget>
-    </item>
-    <item row="2" column="0" colspan="2">
-     <widget class="QTableWidget" name="tableWidget"/>
     </item>
     <item row="0" column="1">
      <widget class="QPushButton" name="pushButton">
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <family>Verdana</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
        <string>Back to Main Menu</string>
       </property>
      </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QTableWidget" name="tableWidget"/>
     </item>
    </layout>
   </widget>
@@ -53,7 +135,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1157</width>
+     <width>1490</width>
      <height>25</height>
     </rect>
    </property>

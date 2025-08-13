@@ -1,3 +1,4 @@
+#include<fstream>
 #include<iostream>
 #include "Inventory.h"
 //#include<fstream>
@@ -118,17 +119,6 @@ bool Inventory::loadInventoryFromFile(const std::string& filename)
     return true;
 }
 
-//Checks if the item is less than or equal to 15 and displays an alert message if it does
-void Inventory::checkReorderAlerts()
-{
-    for(const Item I: items){
-        if(I.quantity <= 15){
-            std::cout<<"The "<<I.itemName<<" is almost finished!!! You may reorder it."<<std::endl;
-        }
-    }
-
-    return;
-}
 
 void Inventory:: copyInventoryItems(std::vector<Item>& itms) const{
     itms = items;

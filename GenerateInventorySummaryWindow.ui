@@ -14,6 +14,143 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">/* ---------- Main Window ---------- */
+QWidget {
+    background-color: #E0F7FA;  /* Soft mint teal */
+}
+
+/* ---------- Title Label ---------- */
+QLabel#label {
+    color: #00796B;                     /* Deep teal */
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    qproperty-alignment: AlignHCenter;
+}
+
+/* ---------- Field Labels ---------- */
+QLabel#label_2,
+QLabel#label_3,
+QLabel#label_4 {
+    color: #455A64;                     /* Slate gray */
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* ---------- QLineEdit Fields ---------- */
+QLineEdit {
+    background-color: #FFFFFF;
+    border: 2px solid #0288D1;          /* Cool blue border */
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 15px;
+    color: #333333;
+}
+QLineEdit:focus {
+    border: 2px solid #00BCD4;          /* Cyan highlight */
+    background-color: #F1F8E9;          /* Gentle focus tint */
+}
+QLineEdit:disabled {
+    background-color: #ECEFF1;
+    color: #90A4AE;
+}
+
+/* ---------- Back Button ---------- */
+QPushButton#back_button {
+    background-color: #FF6F61;          /* Coral pink */
+    color: #FFFFFF;
+    border: 2px solid #FF8A80;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    min-height: 20px;
+    min-width: 80px;
+}
+QPushButton#back_button:hover {
+    background-color: #E65C50;
+    border-color: #FFAB91;
+}
+QPushButton#back_button:pressed {
+    background-color: #CC4A3F;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/* ---------- Table Widget ---------- */
+QTableWidget {
+    background-color: #FFFFFF;
+    border: 1px solid #B0BEC5;
+    gridline-color: #CFD8DC;
+    color: #37474F;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 14px;
+    alternate-background-color: #F5F5F5;
+    selection-background-color: #B2EBF2;
+    selection-color: #000000;
+}
+QTableWidget::item {
+    padding: 6px;
+}
+QTableWidget::item:selected {
+    background-color: #B2EBF2;
+    color: #000000;
+}
+
+/* ---------- Table Headers ---------- */
+QHeaderView::section {
+    background-color: #00BCD4;  /* Cyan header */
+    color: #FFFFFF;
+    padding: 6px 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+QHeaderView::section:hover {
+    background-color: #00ACC1;
+}
+QTableCornerButton::section {
+    background-color: #00BCD4;
+    border: none;
+}
+
+/* ---------- Scrollbars ---------- */
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 2px;
+}
+QScrollBar::handle:vertical {
+    background: #B0BEC5;
+    min-height: 24px;
+    border-radius: 5px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #90A4AE;
+}
+QScrollBar:horizontal {
+    background: transparent;
+    height: 10px;
+    margin: 2px;
+}
+QScrollBar::handle:horizontal {
+    background: #B0BEC5;
+    min-width: 24px;
+    border-radius: 5px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: #90A4AE;
+}
+
+/* ---------- Label Shadow (only for generic labels) ---------- */
+QLabel:not(#label):not(#label_2):not(#label_3):not(#label_4) {
+    text-shadow: 1px 1px 2px #000000;
+}</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="0">
      <widget class="QTableWidget" name="table">
@@ -45,7 +182,8 @@
      <widget class="QLabel" name="label">
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
+        <family>Segoe UI</family>
+        <pointsize>-1</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -53,7 +191,7 @@
        <string>Inventory Summary</string>
       </property>
       <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
+       <set>Qt::AlignmentFlag::AlignHCenter</set>
       </property>
      </widget>
     </item>

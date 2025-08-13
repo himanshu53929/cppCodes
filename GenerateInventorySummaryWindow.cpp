@@ -12,6 +12,8 @@ GenerateInventorySummaryWindow::GenerateInventorySummaryWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    showMaximized();
+
     ui->table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     TransactionManager transactionManager;

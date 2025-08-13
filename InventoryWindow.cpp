@@ -14,6 +14,8 @@ InventoryWindow::InventoryWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    showMaximized();
+
 }
 
 InventoryWindow::~InventoryWindow()

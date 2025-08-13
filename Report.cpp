@@ -1,46 +1,44 @@
 #include "Report.h"
+#include<fstream>
 #include <QDebug>
+#include <QApplication>
 
 
 Report::Report(const TransactionManager &tm, const Inventory &inv): transactionManager(tm), inventory(inv) {}
 
-void Report::generateBalanceSheet() {
-    float asset = 0.0;
-    float liability = 0.0;
-    //credit is marked as liability
-    for (const Transaction& t: transactionManager.getAllTransactions()) {
-        if (t.type == "credit") {
-            liability += t.amount;
-        }
-    }
-    for (const auto& item : inventory.getItems() ) {
-        asset = item.price * item.quantity;
-    }
-    //balance sheet to output ya hunxa
-}
 
-bool Report::exportReport(const std::string &reportName) {
-    std::ofstream outFile(reportName);
+bool Report::exportReport(std::string &reportName) {
+    QString path = QCoreApplication::applicationDirPath() + "/Exported Reports/";
+    std::string finalPath = path.toStdString() + reportName;
+    std::ofstream outFile(finalPath);
     if (!outFile.is_open()) {
         return false;
     }
-    float income = 0.0, expense = 0.0, asset = 0.0, liability = 0.0;
+
+    QString transactionFilePath = QCoreApplication:: applicationDirPath() + "/data/transaction.txt";
+    transactionManager.loadFromFile(transactionFilePath.toStdString());
+    float income = 0.0, expense = 0.0;
     for (const Transaction& t: transactionManager.getAllTransactions()) {
-        if (t.nature == "sales" || t.nature == "purchase return") {
+        if (t.nature == "Sales" || t.nature == "Purchase Return") {
             income += t.amount;
         }
 
-        if (t.nature == "sales return" || t.nature == "purchase") {
+        else {
             expense += t.amount;
         }
     }
-    outFile << "Accouting report" << std::endl;
+
+    qDebug()<<expense;
+    outFile << "Accounting Report" << std::endl;
     outFile << "=========================\n";
-    outFile << "Proit and Loss \n" ;
-    outFile << "Income rs." << income << "\n" ;
-    outFile << "Expense rs." << expense << "\n" ;
+    outFile << "Profit and Loss \n" ;
+    outFile << "Income Rs." << income << "\n" ;
+    outFile << "Expense Rs." << expense << "\n" ;
     std::string resultType = (income - expense) < 0 ? "Loss" : "Profit";
-    outFile << "Net: " << resultType << std::abs(income - expense) << std::endl;
+    outFile << "Net " << resultType <<" Rs."<<std::abs(income - expense) << std::endl;
+    outFile<< "=========================\n";
+    outFile<<"Thank you from Himanshu, Ishan and Janak"<<std::endl;
+    outFile<<"Radhe Radhe";
 
     return true;
 }
