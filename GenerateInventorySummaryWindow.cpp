@@ -46,8 +46,8 @@ GenerateInventorySummaryWindow::GenerateInventorySummaryWindow(QWidget *parent)
     ui->table->setRowCount(1);
 
     ui->table->setItem(0, 0, new QTableWidgetItem(QString::number(inventory.getItems().size())));
-    ui->table->setItem(0, 1, new QTableWidgetItem(QString::number(totalItems)));
-    ui->table->setItem(0, 2, new QTableWidgetItem(QString::number(totalValue, 'f', 2)));
+    ui->table->setItem(0, 1, new QTableWidgetItem(QString::number(totalValue, 'f', 2)));
+    ui->table->setItem(0, 2, new QTableWidgetItem(QString::number(totalItems)));
 }
 
 GenerateInventorySummaryWindow::~GenerateInventorySummaryWindow()

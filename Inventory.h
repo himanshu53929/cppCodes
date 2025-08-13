@@ -19,7 +19,7 @@ public:
     Inventory();
     //void input();
     bool addItem(Item& I);
-    void updatePrice(const std:: string nam, const int& p);
+    void updatePrice(const std:: string nam, const int& p, const std::string& filename);
     void updateQuantity(const std::string nam, const int& q, const std::string& filename);
     void viewInventory() const;
     double getPriceByName(const std::string& itemName) const;

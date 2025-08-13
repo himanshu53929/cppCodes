@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "User.h"
 // #include <iostream>
 // #include "Inventory.h"
 // #include "Transaction.h"
@@ -61,10 +62,19 @@ void MainWindow::on_view_inventory_clicked()
 
 
 void MainWindow::on_add_items_to_inventory_clicked()
-{
-    hide();
-    AddItemsToInventWin = new AddItemsToInventoryWindow(this);
-    AddItemsToInventWin -> show();
+{   User user;
+    QString userFilePath = "D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/data/user.txt";
+    user.loadUsersFromFile(userFilePath.toStdString());
+    if(user.isAdmin(User::currentUser))
+    {
+        hide();
+        AddItemsToInventWin = new AddItemsToInventoryWindow(this);
+        AddItemsToInventWin -> show();
+    }
+
+    else{
+        QMessageBox:: critical(this, "Error", "Admin Required for Modifying Inventory");
+    }
 }
 
 
@@ -162,10 +172,100 @@ void MainWindow::on_inventory_summary_button_clicked()
 
 
 
-void MainWindow::on_balance_button_clicked()
+void MainWindow::on_add_user_button_clicked()
 {
-    hide();
-    generateBalanceSheet = new GenerateBalanceSheet(this);
-    generateBalanceSheet -> show();
+    User user;
+
+    std::string userFilePath = "D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/data/user.txt";
+
+    user.loadUsersFromFile(userFilePath);
+
+    if(user.isAdmin(User::currentUser)){
+        newUser = new QDialog();
+
+        font.setFamily("Arial");
+        font.setPointSize(12);
+
+        newUser->setWindowModality(Qt::WindowModality::ApplicationModal);
+        newUser->setMaximumHeight(500);
+        newUser->setMinimumWidth(800);
+        newUser->show();
+
+        QLabel* label = new QLabel();
+        label->setParent(newUser);
+        label->setGeometry(10, 10, 450, 50);
+        label->setText("Enter new User's Name");
+        label->show();
+        label->setFont(font);
+
+        newUserName = new QLineEdit();
+        newUserName->setParent(newUser);
+        newUserName->show();
+        newUserName->setGeometry(480, 15, 300, 35);
+        newUserName->setFont(font);
+
+        QLabel* label1 = new QLabel(newUser);
+        label1->setGeometry(10, 80, 450, 50);
+        label1->setText("Enter new User's Password");
+        label1->show();
+        label1->setFont(font);
+
+        newUserPassword = new QLineEdit();
+        newUserPassword->setParent(newUser);
+        newUserPassword->show();
+        newUserPassword->setGeometry(480, 80, 300, 35);
+        newUserPassword->setFont(font);
+
+        QLabel* label2 = new QLabel(newUser);
+        label2->setGeometry(10, 200, 450, 50);
+        label2->setText("Enter new User's Role");
+        label2->show();
+        label2->setFont(font);
+
+        newUserRole = new QLineEdit();
+        newUserRole->setParent(newUser);
+        newUserRole->show();
+        newUserRole->setGeometry(480, 200, 300, 35);
+        newUserRole->setFont(font);
+
+
+
+        QPushButton* button = new QPushButton();
+        connect(button, &QPushButton::clicked, this, &MainWindow::on_submit_newUser_button_clicked);
+        button->setParent(newUser);
+        button->setText("Submit");
+        button->setGeometry(700, 400, 80, 30);
+        button->show();
+        button->setFont(font);
+    }
+
+    else{
+        QMessageBox:: critical(this, "Error", "Access denied!!");
+    }
+}
+
+void MainWindow::on_submit_newUser_button_clicked()
+{
+    QString userName = newUserName->text();
+    QString userPassword = newUserPassword->text();
+    QString userRole = newUserRole->text();
+
+    User user;
+    std::string userFilePath = "D:/Pulchowk Campus/Second Semester/OOP in C++/QT Tutorial/ProjectMew/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/data/user.txt";
+
+    user.loadUsersFromFile(userFilePath);
+
+    bool state = user.registerUser(userName.toStdString(), userPassword.toStdString(), userRole.toStdString());
+
+    if(state){
+        QMessageBox:: information(this, "Janak Bhatta", "Congratulations!! user was registerd sucessfully.");
+    }
+
+    else{
+        QMessageBox:: critical(this, "Error", "An error occured");
+    }
+
+    newUser->close();
+    newUser->deleteLater();
 }
 

@@ -29,7 +29,7 @@ bool Inventory::addItem(Item& I)
 }
 
 //Updates price if needed
-void Inventory::updatePrice(const std::string nam, const int &p)
+void Inventory::updatePrice(const std::string nam, const int &p, const std::string& filename)
 {
 
     //This is called for each loop. Think like all the vector members are loaded to the variable in left
@@ -37,6 +37,14 @@ void Inventory::updatePrice(const std::string nam, const int &p)
         if(nam == I.itemName){
             I.price = p;
         }
+    }
+
+    std::ofstream outfile(filename, std::ios::trunc);
+
+    for(const Item& I: items){
+        outfile<<I.itemName<<std::endl;
+        outfile<<I.quantity<<std::endl;
+        outfile<<I.price<<std::endl;
     }
 
     return;
@@ -52,7 +60,7 @@ void Inventory::updateQuantity(const std::string nam, const int& q, const std::s
     }
 
     //I will also add some code here to check if the quantity is 0 and then remove it
-    std::ofstream outfile(filename, std::ios::out);
+    std::ofstream outfile(filename, std::ios::trunc);
 
     for(const Item& I: items){
         outfile<<I.itemName<<std::endl;

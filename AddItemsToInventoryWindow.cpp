@@ -20,13 +20,28 @@ AddItemsToInventoryWindow::~AddItemsToInventoryWindow()
 void AddItemsToInventoryWindow::on_add_item_clicked()
 {
     QString itemName = ui->item_name->text();
-    int itemPrice = ui->item_price->text().toInt();
+    double itemPrice = ui->item_price->text().toDouble();
     int itemQuantity = ui->item_quantity->text().toInt();
 
     Item I;
     I.itemName = itemName.toStdString();
     I.price = itemPrice;
     I.quantity = itemQuantity;
+
+    QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
+    inventory.loadInventoryFromFile(inventoryFilePath.toStdString());
+
+    for(const auto& item: inventory.getItems()){
+        if(I.itemName == item.itemName){
+            QMessageBox:: StandardButton reply;
+            reply = QMessageBox:: question(this, "Item already exists", "Do you want to update item quantity and price?");
+            if(reply == QMessageBox:: Yes){
+                inventory.updateQuantity(I.itemName, I.quantity, inventoryFilePath.toStdString());
+                inventory.updatePrice(I.itemName, I.price,inventoryFilePath.toStdString());
+            }
+            return;
+        }
+    }
 
     if(inventory.addItem(I)){
         QMessageBox::information(this, "Congratulations", "Item was added Successfully");

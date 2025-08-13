@@ -41,18 +41,6 @@ bool Report::exportReport(const std::string &reportName) {
     outFile << "Expense rs." << expense << "\n" ;
     std::string resultType = (income - expense) < 0 ? "Loss" : "Profit";
     outFile << "Net: " << resultType << std::abs(income - expense) << std::endl;
-    outFile << "Balance Sheet:\n";
-    for (const Transaction& t: transactionManager.getAllTransactions()) {
-        if (t.type == "credit") {
-            liability += t.amount;
-        }
-    }
-    for (const auto& item : inventory.getItems() ) {
-        asset = item.price * item.quantity;
-    }
-    outFile << "Asset: " << asset << std::endl;
-    outFile << "Liability: " << liability << std::endl;
-    outFile << "Net Worth: Rs. " << (asset - liability) << "\n\n";
-    outFile.close();
+
     return true;
 }

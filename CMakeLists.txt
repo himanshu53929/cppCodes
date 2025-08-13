@@ -40,7 +40,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ViewLedgerForAccount.h ViewLedgerForAccount.cpp ViewLedgerForAccount.ui
         ProfitLossWindow.h ProfitLossWindow.cpp ProfitLossWindow.ui
         GenerateInventorySummaryWindow.h GenerateInventorySummaryWindow.cpp GenerateInventorySummaryWindow.ui
-        GenerateBalanceSheet.h GenerateBalanceSheet.cpp GenerateBalanceSheet.ui
+
+        UserLoginWindow.h UserLoginWindow.cpp UserLoginWindow.ui
+        user.txt
 
 
     )
