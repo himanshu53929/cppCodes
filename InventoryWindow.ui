@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Add Transaction</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -43,7 +43,7 @@ QLineEdit, QComboBox, QSpinBox, QDateEdit {
     border-radius: 6px;
     padding: 4px 8px;
     background-color: #989688;
-    font-size: 13px;
+    font-size: 18px;
 	color: black;
 }
 QLineEdit:focus, QComboBox:focus, QSpinBox:focus, QDateEdit:focus {
@@ -108,6 +108,9 @@ QComboBox:hover {
        <font>
         <pointsize>-1</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 18px;</string>
       </property>
      </widget>
     </item>
@@ -246,6 +249,9 @@ QComboBox:hover {
        <font>
         <pointsize>-1</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color : #007A8C;</string>
       </property>
       <item>
        <property name="text">

@@ -34,15 +34,15 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         InventoryWindow.h InventoryWindow.cpp InventoryWindow.ui
         ViewInventoryWindow.h ViewInventoryWindow.cpp ViewInventoryWindow.ui
         AddItemsToInventoryWindow.h AddItemsToInventoryWindow.cpp AddItemsToInventoryWindow.ui
-        transaction.txt
+
         ViewTransactionWindow.h ViewTransactionWindow.cpp ViewTransactionWindow.ui
-        inventory.txt
+
         ViewLedgerForAccount.h ViewLedgerForAccount.cpp ViewLedgerForAccount.ui
         ProfitLossWindow.h ProfitLossWindow.cpp ProfitLossWindow.ui
         GenerateInventorySummaryWindow.h GenerateInventorySummaryWindow.cpp GenerateInventorySummaryWindow.ui
 
         UserLoginWindow.h UserLoginWindow.cpp UserLoginWindow.ui
-        user.txt
+
 
 
     )

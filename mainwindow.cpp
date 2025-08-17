@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "User.h"
 #include<QString>
+#include <QCheckBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -183,7 +184,7 @@ void MainWindow::on_add_user_button_clicked()
         font.setPointSize(12);
 
         newUser->setWindowModality(Qt::WindowModality::ApplicationModal);
-        newUser->setMaximumHeight(500);
+        newUser->setMaximumHeight(265);
         newUser->setMinimumWidth(800);
         newUser->show();
 
@@ -211,18 +212,36 @@ void MainWindow::on_add_user_button_clicked()
         newUserPassword->show();
         newUserPassword->setGeometry(480, 80, 300, 35);
         newUserPassword->setFont(font);
+        newUserPassword->setEchoMode(QLineEdit::Password);
+
+        QCheckBox* checkBox = new QCheckBox("Show Password",newUser);
+        checkBox->setGeometry(670, 130, 110, 20);
+        checkBox->show();
+
+        connect(checkBox, &QCheckBox::toggled, this, [=](bool checked){
+            if(checked){
+                newUserPassword->setEchoMode(QLineEdit::Normal);
+            }
+
+            else{
+                newUserPassword->setEchoMode(QLineEdit::Password);
+            }
+        });
+
+
 
         QLabel* label2 = new QLabel(newUser);
-        label2->setGeometry(10, 200, 450, 50);
+        label2->setGeometry(10, 170, 450, 50);
         label2->setText("Enter new User's Role");
         label2->show();
         label2->setFont(font);
 
-        newUserRole = new QLineEdit();
-        newUserRole->setParent(newUser);
-        newUserRole->show();
-        newUserRole->setGeometry(480, 200, 300, 35);
-        newUserRole->setFont(font);
+        roleComboBox = new QComboBox(newUser);
+        roleComboBox->setGeometry(480, 185, 300, 35);
+        roleComboBox->addItem("Admin");
+        roleComboBox->addItem("User");
+        roleComboBox->show();
+        roleComboBox->setFont(font);
 
 
 
@@ -230,7 +249,7 @@ void MainWindow::on_add_user_button_clicked()
         connect(button, &QPushButton::clicked, this, &MainWindow::on_submit_newUser_button_clicked);
         button->setParent(newUser);
         button->setText("Submit");
-        button->setGeometry(700, 400, 80, 30);
+        button->setGeometry(700, 230, 80, 30);
         button->show();
         button->setFont(font);
     }
@@ -244,7 +263,8 @@ void MainWindow::on_submit_newUser_button_clicked()
 {
     QString userName = newUserName->text();
     QString userPassword = newUserPassword->text();
-    QString userRole = newUserRole->text();
+    QString userRole = roleComboBox->currentText();
+    userRole = userRole.toLower();
 
     User user;
         QString userFilePath = QCoreApplication::applicationDirPath() + "/data/user.txt";
@@ -254,7 +274,7 @@ void MainWindow::on_submit_newUser_button_clicked()
     bool state = user.registerUser(userName.toStdString(), userPassword.toStdString(), userRole.toStdString());
 
     if(state){
-        QMessageBox:: information(this, "Janak Bhatta", "Congratulations!! user was registerd sucessfully.");
+        QMessageBox:: information(this, "User Added", "Congratulations!! user was registerd sucessfully.");
     }
 
     else{
@@ -278,4 +298,3 @@ void MainWindow::on_log_out_button_clicked()
         this -> close();
     }
 }
-

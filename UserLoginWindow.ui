@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Login Window</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -89,6 +89,22 @@ QWidget#Password{
 </string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0" colspan="2">
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Please Login Below</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
     <item row="2" column="1">
      <widget class="QLineEdit" name="userName">
       <property name="styleSheet">
@@ -109,30 +125,7 @@ QWidget#Password{
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="2">
-     <widget class="QLabel" name="label_2">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Please Login Below</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QPushButton" name="submit_button">
-      <property name="text">
-       <string>Login</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="3">
+    <item row="0" column="0" colspan="5">
      <widget class="QLabel" name="random_message">
       <property name="font">
        <font>
@@ -145,6 +138,23 @@ QWidget#Password{
       </property>
       <property name="alignment">
        <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QPushButton" name="submit_button">
+      <property name="text">
+       <string>Login</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QCheckBox" name="checkBox">
+      <property name="styleSheet">
+       <string notr="true">color: red; </string>
+      </property>
+      <property name="text">
+       <string>Show Passowrd</string>
       </property>
      </widget>
     </item>

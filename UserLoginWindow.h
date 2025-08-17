@@ -20,6 +20,8 @@ private slots:
 
     void on_actionrefresh_triggered();
 
+    void on_checkBox_checkStateChanged(const Qt::CheckState &arg1);
+
 private:
     Ui::UserLoginWindow *ui;
 

@@ -1,7 +1,6 @@
 #include<fstream>
 #include<iostream>
 #include "Inventory.h"
-//#include<fstream>
 
 Inventory::Inventory(){}//Nothing just a default constructor
 //to get price of item

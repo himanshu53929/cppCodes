@@ -83,3 +83,15 @@ void UserLoginWindow::on_actionrefresh_triggered()
     setRandomMessage();
 }
 
+
+void UserLoginWindow::on_checkBox_checkStateChanged(const Qt::CheckState &arg1)
+{
+    if(arg1){
+        ui->userPassword->setEchoMode(QLineEdit::Normal);
+    }
+
+    else{
+        ui->userPassword->setEchoMode(QLineEdit::Password);
+    }
+}
+

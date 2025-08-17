@@ -17,6 +17,7 @@
 #include <QMessageBox>
 #include "GenerateInventorySummaryWindow.h"
 #include "UserLoginWindow.h"
+#include <QComboBox>
 
 
 #include <QMainWindow>
@@ -87,6 +88,8 @@ private:
     QLineEdit* newUserName;
     QLineEdit* newUserPassword;
     QLineEdit* newUserRole;
+
+    QComboBox* roleComboBox;
 
     Report* ptr_report;
 
