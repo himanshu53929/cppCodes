@@ -13,7 +13,6 @@ UserLoginWindow::UserLoginWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // showMaximized();
 
     setRandomMessage();
 

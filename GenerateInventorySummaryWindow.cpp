@@ -1,9 +1,7 @@
 #include "GenerateInventorySummaryWindow.h"
 #include "ui_GenerateInventorySummaryWindow.h"
 #include "Inventory.h"
-#include "TransactionManager.h"
 #include <QMessageBox>
-#include "Report.h"
 #include <QString>
 
 GenerateInventorySummaryWindow::GenerateInventorySummaryWindow(QWidget *parent)
@@ -16,25 +14,10 @@ GenerateInventorySummaryWindow::GenerateInventorySummaryWindow(QWidget *parent)
 
     ui->table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    TransactionManager transactionManager;
-    bool state;
-    QString filePath = QCoreApplication::applicationDirPath() + "/data/transaction.txt";
-
-    state = transactionManager.loadFromFile(filePath.toStdString());
-    if(state == false){
-        QMessageBox::critical(this, "Error", "File was not loaded sucessfully!!, Returning to main window");
-        if(parentWidget()){
-            parentWidget() -> show();
-        }
-
-        this -> close();
-    }
-
     Inventory inventory;
     QString inventoryFilePath = QCoreApplication::applicationDirPath() + "/data/inventory.txt";
     inventory.loadInventoryFromFile(inventoryFilePath.toStdString());
 
-    Report report(transactionManager, inventory);
 
     double totalValue = 0.0;
     int totalItems = 0;
