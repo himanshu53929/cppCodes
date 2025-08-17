@@ -29,7 +29,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Transaction.h Transaction.cpp
         TransactionManager.h TransactionManager.cpp
         User.h User.cpp
-        Utilities.h Utilities.cpp
+
         Report.h Report.cpp
         InventoryWindow.h InventoryWindow.cpp InventoryWindow.ui
         ViewInventoryWindow.h ViewInventoryWindow.cpp ViewInventoryWindow.ui
@@ -42,6 +42,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         GenerateInventorySummaryWindow.h GenerateInventorySummaryWindow.cpp GenerateInventorySummaryWindow.ui
 
         UserLoginWindow.h UserLoginWindow.cpp UserLoginWindow.ui
+        resource.qrc
 
 
 

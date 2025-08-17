@@ -64,6 +64,10 @@ private slots:
 
     void on_log_out_button_clicked();
 
+    void on_actionAbout_triggered();
+
+    void on_actionGo_To_Home_triggered();
+
 private:
     Ui::MainWindow *ui;
 

@@ -7,7 +7,6 @@ LedgerEntry::LedgerEntry(int acc, const std::string& nat, const std::string& ite
     amount(qty * r), description(desc), type(t), date(d) {}
 
 
-void Ledger::addEntry(const LedgerEntry& entry) {}
 std::vector<LedgerEntry> Ledger::returnLedger()
 {
     return entries;

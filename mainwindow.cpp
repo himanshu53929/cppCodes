@@ -3,6 +3,7 @@
 #include "User.h"
 #include<QString>
 #include <QCheckBox>
+#include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -30,6 +31,28 @@ MainWindow::MainWindow(QWidget *parent)
     inventory.loadInventoryFromFile(inventoryFilePath.toStdString());
 
     ptr_report = new Report(transactionManager, inventory);
+
+
+    //Code for About Page
+    QString file;
+    file = QCoreApplication::applicationDirPath() + "/Images/Janak_Bhatta.jpg";
+    QPixmap janakPhoto(file);
+    ui->janak->setPixmap(janakPhoto);
+    QPixmap scaled1 = janakPhoto.scaled(ui->janak->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    ui->janak->setPixmap(scaled1);
+
+    file = QCoreApplication::applicationDirPath() + "/Images/Ishan_Gautam.jpg";
+    QPixmap ishanPhoto(file);
+    ui->ishan->setPixmap(ishanPhoto);
+    QPixmap scaled2 = ishanPhoto.scaled(ui->ishan->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    ui->ishan->setPixmap(scaled2);
+
+    file = QCoreApplication::applicationDirPath() + "/Images/Himanshu_Chand.jpg";
+    QPixmap himanshuPhoto(file);
+    QPixmap scaled3 = himanshuPhoto.scaled(ui->himanshu->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    ui->himanshu->setPixmap(scaled3);
+
+    ui->stackedWidget->setCurrentIndex(0);
 
 }
 
@@ -298,3 +321,15 @@ void MainWindow::on_log_out_button_clicked()
         this -> close();
     }
 }
+
+void MainWindow::on_actionAbout_triggered()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+
+void MainWindow::on_actionGo_To_Home_triggered()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+

@@ -73,79 +73,53 @@ QPushButton#log_out_button:disabled {
 </string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="9" column="0">
-     <widget class="QPushButton" name="view_tansaction">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
+    <item row="0" column="0">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>1</number>
       </property>
-      <property name="text">
-       <string>View Transaction</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QPushButton" name="add_transaction">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Add Transaction</string>
-      </property>
-     </widget>
-    </item>
-    <item row="13" column="0">
-     <widget class="QPushButton" name="profit_loss_button">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Generate Profit and Loss Report</string>
-      </property>
-     </widget>
-    </item>
-    <item row="12" column="0">
-     <widget class="QPushButton" name="view_ledger_for_account">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>View Ledger for Accocunt</string>
-      </property>
-     </widget>
-    </item>
-    <item row="18" column="0">
-     <widget class="QPushButton" name="exit">
-      <property name="styleSheet">
-       <string notr="true">background-color: pink;</string>
-      </property>
-      <property name="text">
-       <string>Exit</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="font">
-       <font>
-        <family>Segoe UI</family>
-        <pointsize>-1</pointsize>
-        <fontweight>DemiBold</fontweight>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel#label_2 {
+      <widget class="QWidget" name="page_3">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>Comic Sans MS</family>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel#label {
+	color: #FF6F00;                   /* White text */
+    font-size: 40px;                  /* Large text size */
+    font-weight: bold;                /* Bold font */
+    font-family: &quot;Comic Sans MS&quot;, &quot;Segoe Script&quot;, cursive;
+    padding: 10px;                    /* Space inside the label */
+    letter-spacing: 1px;              /* Slight spacing between letters */
+    background-color: transparent;    /* No background fill */
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Welcome to Accounting App</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+            <fontweight>DemiBold</fontweight>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel#label_2 {
     color: #03CEA4;                   /* Teal text color */
     font-size: 26px;                   /* Medium font size */
     font-weight: 600;                  /* Semi-bold */
@@ -161,119 +135,142 @@ QLabel#label_2:hover {
     border-color: white;                      /* White border on hover */
 }
 </string>
-      </property>
-      <property name="text">
-       <string>Select a option from below: </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="11" column="0">
-     <widget class="QPushButton" name="add_items_to_inventory">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Add Items to Inventory( Only for Admins)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="15" column="0">
-     <widget class="QPushButton" name="export_report_button">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Export Report</string>
-      </property>
-     </widget>
-    </item>
-    <item row="16" column="0">
-     <widget class="QPushButton" name="add_user_button">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Add User( Only for Admins)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="14" column="0">
-     <widget class="QPushButton" name="inventory_summary_button">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Generate Inventory Summary</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="0">
-     <widget class="QPushButton" name="view_inventory">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>View Inventory</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label">
-      <property name="font">
-       <font>
-        <family>Comic Sans MS</family>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel#label {
-	color: #FF6F00;                   /* White text */
-    font-size: 40px;                  /* Large text size */
-    font-weight: bold;                /* Bold font */
-    font-family: &quot;Comic Sans MS&quot;, &quot;Segoe Script&quot;, cursive;
-    padding: 10px;                    /* Space inside the label */
-    letter-spacing: 1px;              /* Slight spacing between letters */
-    background-color: transparent;    /* No background fill */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Welcome to Accounting App</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="17" column="0">
-     <widget class="QPushButton" name="log_out_button">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton#log_out_button {
+          </property>
+          <property name="text">
+           <string>Select a option from below: </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="add_transaction">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Add Transaction</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="view_tansaction">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>View Transaction</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QPushButton" name="view_inventory">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>View Inventory</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QPushButton" name="add_items_to_inventory">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Add Items to Inventory( Only for Admins)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QPushButton" name="view_ledger_for_account">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>View Ledger for Accocunt</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QPushButton" name="profit_loss_button">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Generate Profit and Loss Report</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QPushButton" name="inventory_summary_button">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Generate Inventory Summary</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QPushButton" name="export_report_button">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Export Report</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="QPushButton" name="add_user_button">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Add User( Only for Admins)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="0">
+         <widget class="QPushButton" name="log_out_button">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#log_out_button {
     background-color: #e74c3c;       /* Bright red background */
     color: white;                    /* White text */
     border-radius: 8px;               /* Rounded corners */
@@ -298,10 +295,77 @@ QPushButton#log_out_button:disabled {
     color: #7f8c8d;
 }
 </string>
-      </property>
-      <property name="text">
-       <string>Log Out</string>
-      </property>
+          </property>
+          <property name="text">
+           <string>Log Out</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0">
+         <widget class="QPushButton" name="exit">
+          <property name="styleSheet">
+           <string notr="true">background-color: pink;</string>
+          </property>
+          <property name="text">
+           <string>Exit</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_4">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="1" column="0">
+         <widget class="QLabel" name="himanshu">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="janak">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="3">
+         <widget class="QLabel" name="label_3">
+          <property name="font">
+           <font>
+            <pointsize>16</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: #008080;</string>
+          </property>
+          <property name="text">
+           <string>My Accounting App is a simple yet usefull application desgined by Himanshu, Ishan and Janak under the guidence of the respected Shree Daya Sagar Baral Sir. This project was build to fullfill the requirements set by IOE for the OOP in C++ course. It has several functions like the view invetory, transaction and ledger. Hope you will enjoy our application. Finally, thank you very much for using our application.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="ishan">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -317,12 +381,42 @@ QPushButton#log_out_button:disabled {
    </property>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
-     <string>About</string>
+     <string>Help</string>
     </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuHome">
+    <property name="title">
+     <string>Home</string>
+    </property>
+    <addaction name="actionGo_To_Home"/>
    </widget>
    <addaction name="menuAbout"/>
+   <addaction name="menuHome"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::UserAvailable"/>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionGo_To_Home">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::GoHome"/>
+   </property>
+   <property name="text">
+    <string>Go To Home</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

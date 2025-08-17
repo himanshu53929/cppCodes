@@ -38,7 +38,7 @@ bool Report::exportReport(std::string &reportName) {
     outFile << "Net " << resultType <<" Rs."<<std::abs(income - expense) << std::endl;
     outFile<< "=========================\n";
     outFile<<"Thank you from Himanshu, Ishan and Janak"<<std::endl;
-    outFile<<"Radhe Radhe";
+    outFile<<"Radhe Radhe 🙏";
 
     return true;
 }

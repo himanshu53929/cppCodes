@@ -32,7 +32,6 @@ private:
 public:
     std::vector<LedgerEntry> returnLedger();
     void loadFromTransactions(const std::vector<Transaction>& txList);
-    void addEntry(const LedgerEntry& entry);
 };
 
 #endif
